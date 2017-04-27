@@ -1,6 +1,7 @@
 {
   "name": "flashcard-app",
   "version": "0.1.0",
+<<<<<<< HEAD
   "description": "flash card app built in react and redux",
   "main": "server.js",
   "scripts": {
@@ -26,3 +27,20 @@
     "eslint-plugin-react": "^6.10.3"
   }
 }
+=======
+  "private": true,
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+>>>>>>> 16b06cf17d5b76545fa1cfe510a4dadd9b3698cf
