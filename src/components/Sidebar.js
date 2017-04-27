@@ -1,10 +1,24 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import { showDeck, hideDeck, addDeck } from '../actions/actions';
+import { connect } from 'react-redux';
 
-export default class Sidebar extends Component {
+const mapStateToProps = ({ decks, addingDeck }) => ({
+    decks,
+    addingDeck
+});
+
+const mapDispatchToProps = dispatch  => ({
+    addDeck:  name => dispatch(addDeck(name)),
+    showAddDeck: () => dispatch(showDeck()),
+    hideAddDeck: () => dispatch(hideDeck())
+})
+
+class Sidebar extends Component {
     constructor(props) {
         super(props);
         this.props = props;
+        console.log(this.props)
         this.createDeck = this.createDeck.bind(this);
     }
     componentDidUpdate() {
@@ -33,3 +47,5 @@ export default class Sidebar extends Component {
         this.props.hideAddDeck();
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

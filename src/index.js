@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Sidebar from './components/Sidebar';
-import { showDeck, hideDeck, addDeck } from './actions/actions';
-import {store} from './stores/store';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import * as reducers from './reducers/reducers';
 import './styles/App.css';
+
+const store = createStore(combineReducers( reducers ));
 
 function run() {
     let state = store.getState();
-    console.log(state);
+    console.log(state)
     ReactDOM.render(
-        <Sidebar
-            decks={state.decks}
-            addingDeck={state.addingDeck}
-            addDeck={ name => store.dispatch(addDeck(name)) }
-            showAddDeck={() => store.dispatch(showDeck())}
-            hideAddDeck={() => store.dispatch(hideDeck())}
-        />, document.getElementById('root'));
+        <Provider store={store}>
+            <Sidebar/>
+        </Provider>, document.getElementById('root'));
 }
 
 run();
