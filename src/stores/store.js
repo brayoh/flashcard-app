@@ -1,19 +1,4 @@
-/* eslint-disable */
 import {createStore, combineReducers} from 'redux';
+import * as reducers from '../reducers/reducers';
 
-export const cards = (state, action) => {
-    switch (action.type) {
-        case 'ADD_CARD':
-            let newCard = Object.assign({}, action.data, {
-                score: 1,
-                id: + new Date
-            });
-            return state.concat([newCard]);
-        default:
-            return state || [];
-            break;
-    }
-};
-const store = createStore(combineReducers({
-    cards
-}));
+export const store = createStore(combineReducers( reducers ));
