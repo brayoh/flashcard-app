@@ -64,6 +64,7 @@ button.delete {
     background: #f6f7f8;
     border-right: 1px solid #eee;
     box-sizing: border-box;
+    /*height: calc(100% - 37px);*/
     height: calc(100% - 37px);
     width: 20%;
     padding: 25px;
@@ -105,7 +106,7 @@ button.delete {
     width: 80%;
     height: calc(100% - 37px);
     float: left;
-    overflow:scroll;
+    /*overflow:scroll;*/
     padding: 20px;
     box-sizing: border-box;
 }
