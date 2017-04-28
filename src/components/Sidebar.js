@@ -1,39 +1,37 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { showDeck, hideDeck, addDeck } from '../actions/actions';
-import { connect } from 'react-redux';
+import {showAddDeck, hideAddDeck, addDeck} from '../actions/actions';
+import {connect} from 'react-redux';
+import { Link } from 'react-router';
 
-const mapStateToProps = ({ decks, addingDeck }) => ({
-    decks,
-    addingDeck
-});
+const mapStateToProps = ({decks, addingDeck}) => ({decks, addingDeck});
 
-const mapDispatchToProps = dispatch  => ({
-    addDeck:  name => dispatch(addDeck(name)),
-    showAddDeck: () => dispatch(showDeck()),
-    hideAddDeck: () => dispatch(hideDeck())
+const mapDispatchToProps = dispatch => ({
+    addDeck: name => dispatch(addDeck(name)),
+    showAddDeck: () => dispatch(showAddDeck()),
+    hideAddDeck: () => dispatch(hideAddDeck())
 })
 
-class Sidebar extends Component {
+export class Sidebar extends Component {
     constructor(props) {
         super(props);
         this.props = props;
-        console.log(this.props)
         this.createDeck = this.createDeck.bind(this);
     }
     componentDidUpdate() {
         let el = ReactDOM.findDOMNode(this.refs.add);
-        if(el) el.focus();
+        if (el) el.focus();
     }
     render() {
         return (
             <div className="sidebar">
                 <h2>All Decks</h2>
-                <button onClick={e => this.props.showAddDeck()}>
-                    New Deck
-                </button>
                 <ul>
-                    {this.props.decks.map((deck, i) => <li key={i}>{deck.name}</li>)}
+                    {this.props.decks.map((deck, i) =>
+                        <li key={i}>
+                            <Link to={`/deck/${deck.id}`} > {deck.name} </Link>
+                        </li>
+                    )}
                 </ul>
                 {this.props.addingDeck && <input ref='add' onKeyPress={this.createDeck}/>}
             </div>
