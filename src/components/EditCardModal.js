@@ -2,7 +2,7 @@ import { updateCard, deleteCard } from '../actions/actions';
 import { connect } from 'react-redux';
 import CardModal from  './CardModal';
 
-const mapStateToProps = ({ cards }, {params: { cardId } }) => ({
+const mapStateToProps = ({ cards }, { params: { cardId } }) => ({
     card: cards.filter((card) => card.id === parseInt(cardId))[0]
 });
 
