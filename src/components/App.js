@@ -4,7 +4,7 @@ import '../styles/App.css';
 import { connect } from 'react-redux';
 import Toolbar from './Toolbar';
 
-const mapStateToProps = (props,{ params: { deckId } }) => ({
+const mapStateToProps = (props, { params: { deckId } }) => ({
     deckId
 })
 

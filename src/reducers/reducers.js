@@ -7,14 +7,22 @@ export const cards = (state, action) => {
                 id: + new Date
             });
             return state.concat([newCard]);
-        default:
-            return state || [];
+        case 'UPDATE_CARD':
+            let cardUpdate = action.data;
+            return state.map(card => (card.id !== cardUpdate.id)
+                ? card
+                : Object.assign({}, card, cardUpdate)
+            );
+        case 'DELETE_CARD':
+            return state.filter(c => c.id !== parseInt(action.data));
             break;
+        default : return state || [];
+        break;
     }
 };
 
 export const decks = (state, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'ADD_DECK':
             let newDeck = {
                 name: action.data,
@@ -27,8 +35,11 @@ export const decks = (state, action) => {
 }
 export const addingDeck = (state, action) => {
     switch (action.type) {
-        case 'SHOW_ADD_DECK': return true;
-        case 'HIDE_ADD_DECK': return false;
-        default: return !!state;
+        case 'SHOW_ADD_DECK':
+            return true;
+        case 'HIDE_ADD_DECK':
+            return false;
+        default:
+            return !!state;
     }
 }

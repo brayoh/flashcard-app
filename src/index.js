@@ -9,7 +9,7 @@ import App from './components/App';
 import * as localStore from './stores/localStorage';
 import VisibleCards from './components/VisibleCards';
 import NewCardModal from './components/NewCardModal';
-
+import EditCardModal from './components/EditCardModal';
 reducers.routing = routerReducer;
 
 const store = createStore(combineReducers(reducers), localStore.get());
@@ -24,7 +24,8 @@ function init() {
             <Router history={history}>
                 <Route path='/' component={App}>
                     <Route path='/deck/:deckId' component={VisibleCards}>
-                        <Route path='/deck/:deckId/new' component={NewCardModal}></Route>
+                        <Route path='/deck/:deckId/new' component={NewCardModal} />
+                        <Route path='/deck/:deckId/edit/:cardId' component={EditCardModal} />
                     </Route>
                 </Route>
             </Router>

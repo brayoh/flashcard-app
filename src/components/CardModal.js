@@ -44,7 +44,7 @@ class CardModal extends Component {
         browserHistory.push(`/deck/${this.props.card.deckId}`);
     }
     onDelete(){
-        this.props.onDelete(this.props.card.deckId);
+        this.props.onDelete(this.props.card.id);
         browserHistory.push(`/deck/${this.props.card.deckId}`);
     }
 }
