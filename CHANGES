@@ -1,0 +1,20 @@
+Version 0.1.0
+ - add bump version script, server script and studymodal component
+ - Merge branch 'feature/edit-cards'
+ - add ability to study deck, create simple express static server
+ - add ability to delete and edit cards
+ - add nested routing for child components
+ - add nested routing for child components
+ - add toolbar component
+ - add unit sample test
+ - add routes
+ - add react redux, separate compents into presentation and container components
+ - organise the app structure to make it more scalable
+ - add new files
+ - fix merge conflict
+ - add styles, create a sidebar component, render basic app
+ - add styles, create a sidebar component, render basic app
+ - inital commit
+ - initial commit
+ - Initial commit
+
